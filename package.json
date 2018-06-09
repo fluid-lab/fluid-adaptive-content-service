@@ -1,0 +1,36 @@
+{
+  "name": "fluid-adaptive-content-service",
+  "version": "1.0.0",
+  "description": "A service to make it easier for other applications to make use other third-party services like, dictionary look-up, translation, etc. The application is in the form of a REST-like API.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./v1/dictionary/server.js",
+    "test": "node ./share/dictionary/tests/definitionOnlyTests.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fluid-lab/fluid-adaptive-content-service.git"
+  },
+  "author": "Fluid Project",
+  "license": "(BSD-3-Clause OR ECL-2.0)",
+  "bugs": {
+    "url": "https://github.com/fluid-lab/fluid-adaptive-content-service/issues"
+  },
+  "homepage": "https://github.com/fluid-lab/fluid-adaptive-content-service#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^5.0.1",
+    "infusion": "3.0.0-dev.20171117T095227Z.67ff934",
+    "kettle": "1.7.1",
+    "node-jqunit": "^1.1.8",
+    "request": "^2.87.0",
+    "word-definition": "^2.1.6"
+  },
+  "devDependencies": {
+    "eslint-config-fluid": "^1.3.0",
+    "fluid-grunt-eslint": "^18.1.2",
+    "grunt": "^1.0.2",
+    "grunt-eslint": "^20.1.0",
+    "grunt-jsonlint": "^1.1.0"
+  }
+}
