@@ -4,13 +4,12 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
-require("../../nock/mockOxfordExtendedFrequency"); // providing mock data as an alternative to actual Oxford response
+require("../index").nock.oxford.extendedFrequency; // providing mock data as an alternative to actual Oxford response
 
 // mock data
-var mockExtendedFrequencyData = require("../../mockData/oxford/extendedFrequency");
+var mockExtendedFrequencyData = require("../../index").mockData.oxford.extendedFrequency;
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.dictionary.general.extendedFrequency");
@@ -31,7 +30,7 @@ fluid.defaults("adaptiveContentService.test.handlers.dictionary.general.extended
 });
 
 adaptiveContentService.tests.dictionary.general.extendedFrequency = [{
-    name: "GET request for the Frequency (extended) dictionary endpoint",
+    name: "Integration Test : GET request for the Frequency (extended) dictionary endpoint",
     expect: 5,
     config: {
         configName: "dictionaryServerConfig",

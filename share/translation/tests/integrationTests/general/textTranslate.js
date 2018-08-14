@@ -4,10 +4,9 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
-require("../../nock/yandex/mockYandexTranslation"); // providing mock data as an alternative to actual Yandex response
+require("../index").nock.yandex.translation; // providing mock data as an alternative to actual Yandex response
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.translation.general.translateText");
@@ -16,8 +15,8 @@ fluid.logObjectRenderChars = "@expand:kettle.resolvers.env(CHAR_LIM)";
 
 kettle.loadTestingSupport();
 
-//mock data
-var mockTranslationData = require("../../mockData/yandex/translation");
+// mock data
+var mockTranslationData = require("../../index").mockData.yandex.translation;
 
 /* testing grade for text translation - to override 'characterLimit' and 'authenticationOptions'
  * configuration for the purpose of testing
@@ -31,7 +30,7 @@ fluid.defaults("adaptiveContentService.test.handlers.translation.general.transla
 });
 
 adaptiveContentService.tests.translation.general.translateText = [{
-    name: "POST request for the Text Translation endpoint",
+    name: "Integration Test : POST request for the Text Translation endpoint",
     expect: 9,
     config: {
         configName: "translationServerConfig",

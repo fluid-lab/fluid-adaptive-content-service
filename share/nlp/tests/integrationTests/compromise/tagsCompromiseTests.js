@@ -9,8 +9,7 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.nlp.compromise.sentenceTagging");
@@ -42,7 +41,7 @@ fluid.defaults("adaptiveContentService.test.handlers.nlp.compromise.sentenceTagg
 });
 
 adaptiveContentService.tests.nlp.compromise.sentenceTagging = [{
-    name: "GET request for the Sentence Tagging NLP endpoint",
+    name: "Integration Test : GET request for the Sentence Tagging NLP endpoint",
     expect: 3,
     config: {
         configName: "nlpServerConfig",

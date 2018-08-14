@@ -4,11 +4,10 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
-require("../../nock/yandex/mockYandexTranslation"); // providing mock data as an alternative to actual Yandex response (translation)
-require("../../nock/yandex/mockYandexLangDetection"); // providing mock data as an alternative to actual Yandex response (language detection)
+require("../index").nock.yandex.translation; // providing mock data as an alternative to actual Yandex response (translation)
+require("../index").nock.yandex.langDetection; // providing mock data as an alternative to actual Yandex response (language detection)
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.translation.yandex.detectAndTranslate");
@@ -35,7 +34,7 @@ fluid.defaults("adaptiveContentService.test.handlers.translation.yandex.detectAn
 });
 
 adaptiveContentService.tests.translation.yandex.detectAndTranslate = [{
-    name: "POST request for the translation endpoint (with only target language given) of Yandex Service",
+    name: "Integration Test : POST request for the translation endpoint (with only target language given) of Yandex Service",
     expect: 7,
     config: {
         configName: "translationServerConfig",

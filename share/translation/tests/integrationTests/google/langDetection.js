@@ -4,8 +4,7 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.translation.google.langDetection");
@@ -14,8 +13,8 @@ fluid.logObjectRenderChars = kettle.resolvers.env("CHAR_LIM");
 
 kettle.loadTestingSupport();
 
-//mock data
-var mockLangDetectionData = require("../../mockData/google/langDetection");
+// mock data
+var mockLangDetectionData = require("../../index").mockData.google.langDetection;
 
 /* testing grade for google lang detection - to override 'characterLimit' configuration
  * and 'requiredData' function
@@ -38,7 +37,7 @@ adaptiveContentService.test.handlers.translation.google.langDetection.requiredDa
 };
 
 adaptiveContentService.tests.translation.google.langDetection = [{
-    name: "POST request for the Language detection endpoint of Google Service",
+    name: "Integration Test : POST request for the Language detection endpoint of Google Service",
     expect: 7,
     config: {
         configName: "translationServerConfig",

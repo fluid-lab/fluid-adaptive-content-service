@@ -4,13 +4,12 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
-require("../../nock/mockOxfordDefinitions"); // providing mock data as an alternative to actual Oxford response
+require("../index").nock.oxford.definition; // providing mock data as an alternative to actual Oxford response
 
 // mock data
-var mockDefinitionData = require("../../mockData/oxford/definitions");
+var mockDefinitionData = require("../../index").mockData.oxford.definition;
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.dictionary.oxford.definition");
@@ -31,7 +30,7 @@ fluid.defaults("adaptiveContentService.test.handlers.dictionary.oxford.definitio
 });
 
 adaptiveContentService.tests.dictionary.oxford.definition = [{
-    name: "GET request for the definition dictionary endpoint",
+    name: "Integration Test : GET request for the definition dictionary endpoint",
     expect: 6,
     config: {
         configName: "dictionaryServerConfig",

@@ -4,13 +4,12 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
-require("../../nock/mockOxfordListLanguages"); // providing mock data as an alternative to actual Oxford response
+require("../index").nock.oxford.listLanguages; // providing mock data as an alternative to actual Oxford response
 
 // mock data
-var mocklistLanguages = require("../../mockData/oxford/listLanguages");
+var mocklistLanguages = require("../../index").mockData.oxford.listLanguages;
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.dictionary.oxford.listLanguages");
@@ -31,7 +30,7 @@ fluid.defaults("adaptiveContentService.test.handlers.dictionary.oxford.listLangu
 });
 
 adaptiveContentService.tests.dictionary.oxford.listLanguages = [{
-    name: "GET request for the list supported languages endpoint",
+    name: "Integration Test : GET request for the list supported languages endpoint",
     expect: 6,
     config: {
         configName: "dictionaryServerConfig",

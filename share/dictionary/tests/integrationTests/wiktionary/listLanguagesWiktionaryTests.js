@@ -4,8 +4,7 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.dictionary.wiktionary.listLanguages");
@@ -15,7 +14,7 @@ fluid.logObjectRenderChars = "@expand:kettle.resolvers.env(CHAR_LIM)";
 kettle.loadTestingSupport();
 
 adaptiveContentService.tests.dictionary.wiktionary.listLanguages = [{
-    name: "GET request for the List Languages endpoint of Wiktionary Service",
+    name: "Integration Test : GET request for the List Languages endpoint of Wiktionary Service",
     expect: 6,
     config: {
         configName: "dictionaryServerConfig",

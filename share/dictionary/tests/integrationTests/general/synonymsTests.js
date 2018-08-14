@@ -4,13 +4,12 @@ var fluid = require("infusion"),
     kettle = require("kettle");
 require("dotenv").config();
 
-require("../../../../../index.js");
-require("../../../../testUtils");
+require("../index");
 
-require("../../nock/mockOxfordSynonyms"); // providing mock data as an alternative to actual Oxford response
+require("../index").nock.oxford.synonyms; // providing mock data as an alternative to actual Oxford response
 
 // mock data
-var mockSynonymsData = require("../../mockData/oxford/synonyms");
+var mockSynonymsData = require("../../index").mockData.oxford.synonyms;
 
 var adaptiveContentService = fluid.registerNamespace("adaptiveContentService");
 fluid.registerNamespace("adaptiveContentService.tests.dictionary.general.synonyms");
@@ -31,7 +30,7 @@ fluid.defaults("adaptiveContentService.test.handlers.dictionary.general.synonyms
 });
 
 adaptiveContentService.tests.dictionary.general.synonyms = [{
-    name: "GET request for the Synonyms dictionary endpoint",
+    name: "Integration Test : GET request for the Synonyms dictionary endpoint",
     expect: 6,
     config: {
         configName: "dictionaryServerConfig",
