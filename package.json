@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/fluid-lab/fluid-adaptive-content-service#readme",
   "dependencies": {
-    "ajv": "^6.5.1",
+    "ajv": "^6.12.3",
     "ajv-merge-patch": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
     "compromise": "^11.9.1",
