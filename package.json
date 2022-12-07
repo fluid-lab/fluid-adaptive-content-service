@@ -36,7 +36,7 @@
     "dotenv": "^5.0.1",
     "google-translate": "^2.2.0",
     "infusion": "3.0.0-dev.20171117T095227Z.67ff934",
-    "kettle": "1.7.1",
+    "kettle": "1.16.0",
     "nock": "^9.3.3",
     "node-jqunit": "^1.1.8",
     "request": "^2.87.0",
